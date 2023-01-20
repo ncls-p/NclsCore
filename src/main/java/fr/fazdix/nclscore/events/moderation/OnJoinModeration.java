@@ -40,8 +40,9 @@ public class OnJoinModeration implements Listener {
                         .replace('&', '§').replace("%reason%", reason).replace("%prefix%", prefix)
                         .replace("%DateTime%", dateUnban));
                 e.setJoinMessage(null);
-            } else
-                main.hMBannedDatetimeunban.remove(p);
+            } else {
+                main.hMBannedDatetimeunban.remove(p.getUniqueId());
+            }
         }
     }
 

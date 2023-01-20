@@ -40,8 +40,9 @@ public class PlayerChatModeration implements Listener {
                         .replace('&', '§').replace("%reason%", reason).replace("%prefix%", prefix)
                         .replace("%DateTime%", dateUnban));
                 e.setCancelled(true);
-            } else
-                main.hMBannedDatetimeunban.remove(p);
+            } else {
+                main.hMBannedDatetimeunban.remove(p.getUniqueId());
+            }
         }
     }
 }

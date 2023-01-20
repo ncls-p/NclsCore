@@ -113,20 +113,22 @@ public class Ban implements CommandExecutor {
             targetUUID = target.getUniqueId().toString();
             LocalDateTime now = LocalDateTime.now();
             LocalDateTime end = null;
-            if (time != 0)
+            if (time != 0) {
                 end = now.plusSeconds(time);
-            if (time != 0)
+            }
+            if (time != 0 && end != null) {
                 target.kickPlayer(Objects.requireNonNull(main.getConfig().getString("messages.ban.banMessage"))
                         .replace('&', '§')
                         .replace("%staff%", sender.getName())
                         .replace("%reason%", reason.replace('&', '§'))
                         .replace("%time%", end.toString()));
-            else
+            } else {
                 target.kickPlayer(Objects.requireNonNull(main.getConfig().getString("messages.ban.banMessage"))
                         .replace('&', '§')
                         .replace("%staff%", sender.getName())
                         .replace("%reason%", reason.replace('&', '§'))
                         .replace("%time%", "permanent"));
+            }
         } else { // Target is offline
             OfflinePlayer target = Bukkit.getOfflinePlayer(targetName);
             targetUUID = target.getUniqueId().toString();
@@ -147,20 +149,21 @@ public class Ban implements CommandExecutor {
                     staffUUID, time); // Insert into Database
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.hasPermission("ncls.moderation.ban.see")) {
-                    if (time != 0)
+                    if (time != 0 && end != null) {
                         p.sendMessage(Objects.requireNonNull(main.getConfig().getString("messages.ban.see"))
                                 .replace('&', '§')
                                 .replace("%sender%", sender.getName())
                                 .replace("%target%", targetName)
                                 .replace("%time%", end.toString())
                                 .replace("%reason%", reason.replace('&', '§')));
-                    else
+                    } else {
                         p.sendMessage(Objects.requireNonNull(main.getConfig().getString("messages.ban.see"))
                                 .replace('&', '§')
                                 .replace("%sender%", sender.getName())
                                 .replace("%target%", targetName)
                                 .replace("%time%", "permanent")
                                 .replace("%reason%", reason.replace('&', '§')));
+                    }
                 }
             }
         } catch (SQLException throwables) {

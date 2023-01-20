@@ -23,7 +23,8 @@ public class Mute implements CommandExecutor {
     @SuppressWarnings("NullableProblems")
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        String prefix = Objects.requireNonNull(main.getConfig().getString("messages.prefix")).replace('&', '§');
+        String prefix = Objects.requireNonNull(main.getConfig().getString("messages.prefix"))
+                .replace('&', '§');
         if (sender.hasPermission("ncls.moderation.mute")) // Check permission
         {
             if (args.length >= 1) { // Check if args are set
@@ -76,10 +77,12 @@ public class Mute implements CommandExecutor {
                 }
             } else // NO ARGS
                 sender.sendMessage(prefix
-                        + Objects.requireNonNull(main.getConfig().getString("messages.mute.noArgs")).replace('&', '§'));
+                        + Objects.requireNonNull(main.getConfig().getString("messages.mute.noArgs"))
+                                .replace('&', '§'));
         } else // NO PERM
             sender.sendMessage(prefix
-                    + Objects.requireNonNull(main.getConfig().getString("messages.mute.noperm")).replace('&', '§'));
+                    + Objects.requireNonNull(main.getConfig().getString("messages.mute.noperm"))
+                            .replace('&', '§'));
         return false;
     }
 
@@ -113,14 +116,19 @@ public class Mute implements CommandExecutor {
             LocalDateTime end = null;
             if (time != 0)
                 end = now.plusSeconds(time);
-            if (time != 0)
+            if (time != 0 && end != null) {
                 target.sendMessage(Objects.requireNonNull(main.getConfig().getString("messages.mute.muteMessage"))
-                        .replace('&', '§').replace("%staff%", sender.getName())
-                        .replace("%reason%", reason.replace('&', '§')).replace("%time%", end.toString()));
-            else
+                        .replace('&', '§')
+                        .replace("%staff%", sender.getName())
+                        .replace("%reason%", reason.replace('&', '§'))
+                        .replace("%time%", end.toString()));
+            } else {
                 target.sendMessage(Objects.requireNonNull(main.getConfig().getString("messages.mute.muteMessage"))
-                        .replace('&', '§').replace("%staff%", sender.getName())
-                        .replace("%reason%", reason.replace('&', '§')).replace("%time%", "permanent"));
+                        .replace('&', '§')
+                        .replace("%staff%", sender.getName())
+                        .replace("%reason%", reason.replace('&', '§'))
+                        .replace("%time%", "permanent"));
+            }
         } else { // Target is offline
             OfflinePlayer target = Bukkit.getOfflinePlayer(targetName);
             targetUUID = target.getUniqueId().toString();
@@ -141,14 +149,21 @@ public class Mute implements CommandExecutor {
                     staffUUID, time); // Insert into Database
             for (Player p : Bukkit.getOnlinePlayers()) {
                 if (p.hasPermission("ncls.moderation.mute.see")) {
-                    if (time != 0)
+                    if (time != 0 && end != null) {
                         p.sendMessage(Objects.requireNonNull(main.getConfig().getString("messages.mute.see"))
-                                .replace('&', '§').replace("%sender%", sender.getName()).replace("%target%", targetName)
-                                .replace("%time%", end.toString()).replace("%reason%", reason.replace('&', '§')));
-                    else
+                                .replace('&', '§')
+                                .replace("%sender%", sender.getName())
+                                .replace("%target%", targetName)
+                                .replace("%time%", end.toString())
+                                .replace("%reason%", reason.replace('&', '§')));
+                    } else {
                         p.sendMessage(Objects.requireNonNull(main.getConfig().getString("messages.mute.see"))
-                                .replace('&', '§').replace("%sender%", sender.getName()).replace("%target%", targetName)
-                                .replace("%time%", "permanent").replace("%reason%", reason.replace('&', '§')));
+                                .replace('&', '§')
+                                .replace("%sender%", sender.getName())
+                                .replace("%target%", targetName)
+                                .replace("%time%", "permanent")
+                                .replace("%reason%", reason.replace('&', '§')));
+                    }
                 }
             }
         } catch (SQLException throwables) {
