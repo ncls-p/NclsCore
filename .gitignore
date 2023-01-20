@@ -5,3 +5,6 @@
 #target file
 target/
 target/*
+
+# macos
+.DS_Store
