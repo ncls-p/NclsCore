@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite tests="0" failures="0" name="fr.fazdix.changeme.AppTest" time="0" errors="0" skipped="0">
+<testsuite tests="0" failures="0" name="fr.fazdix.nclscore.AppTest" time="0" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment" />
     <property name="java.vm.version" value="11.0.2+9" />
@@ -7,7 +7,7 @@
       value="/Library/Java/JavaVirtualMachines/jdk-11.0.9.jdk/Contents/Home/lib" />
     <property name="gopherProxySet" value="false" />
     <property name="maven.multiModuleProjectDirectory"
-      value="/Users/nicolas/work/perso/minecraft/changeme" />
+      value="/Users/nicolas/work/perso/minecraft/nclscore" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
     <property name="java.vendor.url" value="http://java.oracle.com/" />
     <property name="guice.disable.misplaced.annotation.check" value="true" />
@@ -17,7 +17,7 @@
     <property name="user.country" value="FR" />
     <property name="sun.java.launcher" value="SUN_STANDARD" />
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
-    <property name="user.dir" value="/Users/nicolas/work/perso/minecraft/changeme" />
+    <property name="user.dir" value="/Users/nicolas/work/perso/minecraft/nclscore" />
     <property name="java.vm.compressedOopsMode" value="Zero based" />
     <property name="java.runtime.version" value="11.0.2+9" />
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment" />
@@ -51,7 +51,7 @@
     <property name="java.vm.specification.version" value="11" />
     <property name="sun.arch.data.model" value="64" />
     <property name="sun.java.command"
-      value="org.codehaus.plexus.classworlds.launcher.Launcher install -f /Users/nicolas/work/perso/minecraft/changeme/pom.xml" />
+      value="org.codehaus.plexus.classworlds.launcher.Launcher install -f /Users/nicolas/work/perso/minecraft/nclscore/pom.xml" />
     <property name="java.home"
       value="/Library/Java/JavaVirtualMachines/jdk-11.0.9.jdk/Contents/Home" />
     <property name="user.language" value="fr" />
