@@ -8,3 +8,7 @@ target/*
 
 # macos
 .DS_Store
+
+# intellij
+.idea/*
+.idea/
