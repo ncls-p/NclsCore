@@ -1,0 +1,4 @@
+main: fr.fazdix.changeme.Main
+name: changeme
+version: "1.0"
+api: "0.1"
