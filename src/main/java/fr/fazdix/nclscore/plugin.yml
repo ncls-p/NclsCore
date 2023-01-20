@@ -1,6 +1,9 @@
 main: fr.fazdix.nclscore.Main
 name: NCLSCore
 api: [1.0.0]
+api-version: 1.0.0
+authors:
+    - "Fazix"
 version: "1.0"
 author: Fazdix
 description: plugin to manage server
