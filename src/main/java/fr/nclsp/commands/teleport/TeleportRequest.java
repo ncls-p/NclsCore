@@ -7,7 +7,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import fr.nclsp.Main;
-import fr.nclsp.utils.CountdownTimer;
+import fr.nclsp.utils.timer.CountdownTimer;
 
 import java.util.Objects;
 import java.util.function.Consumer;

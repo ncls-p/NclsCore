@@ -1,4 +1,4 @@
-package fr.nclsp.utils;
+package fr.nclsp.utils.timer;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
