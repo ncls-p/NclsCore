@@ -1,0 +1,47 @@
+main: fr.nclsp.Main
+name: NCLSCore
+authors:
+    - "Fazix"
+version: "1.0"
+author: Fazdix
+api-version: "1.16"
+description: plugin to manage server
+commands:
+    msg:
+        description: Send a private message to a player
+    clearchat:
+        description: Clear the chat
+    blockchat:
+        description: Block the chat
+    tpa:
+        description: Send a teleport request to a player
+    tpyes:
+        aliases:
+            - tpaccept
+    tpno:
+        aliases:
+            - tpdeny
+    day:
+        description: Set the time to day
+    night:
+        description: Set the time to night
+    sun:
+        description: Set the weather to sun
+    rain:
+        description: Set the weather to rain
+    broadcast:
+        aliases:
+            - bc
+    kick:
+        description: Kick a player
+    ban:
+        description: Ban a player
+    mute:
+        description: Mute a player
+    unban:
+        description: Unban a player
+    unmute:
+        description: Unmute a player
+    rtp:
+        aliases:
+            - randomtp

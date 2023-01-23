@@ -1,0 +1,159 @@
+config:
+    activation: #Let 'true' to activate on the server or replace by 'false' if you don't want it
+        msg: true
+        broadcast: true
+        clearchat: true
+        tpa: true
+        weather: true
+        time: true
+        moderation: false #Require a database with a valid configuration, using MySQL or MariaDB
+        rtp: true
+        blockchat: true #toggle chat on or off
+
+    parameters:
+        tpa:
+            timeToRespond: 15 #Time in seconds to execute /tpyes or /tpno
+            timeBeforeTeleport: 5 #Time before being teleported after the requested player executed /tpyes
+
+        moderation:
+            database: #Currently only support MySQL & MariaDB databases !
+                host: ""
+                port: ""
+                username: ""
+                password: ""
+                databaseName: ""
+                tablePrefix: ""
+
+        rtp: #Random Teleport
+            center:
+                x: 0
+                z: 0
+            range: 35000 #Maximum teleport range in block
+            timer: #each perm represent seconds before rtp again, each perm can be set has: nclscore.rtp.perm1 - nclscore.rtp.perm2 - nclscore.rtp.perm3 - nclscore.rtp.perm4 or nclscore.rtp.bypass
+                perm1: 10800
+                perm2: 7200
+                perm3: 3600
+                perm4: 1800
+
+messages:
+    prefix: "&6&lNcls&5&lCore "
+    msg:
+        sender: "&6[&5You &6-> &5%receiver%&6] &a%message%"
+        receiver: "&6[&5%sender% &6-> &5You&6] &a%message%"
+        noperm: "&cYou don't have the permission to /msg"
+        noArgs: "&cYou must specifies the player and the message this way: \n &6/msg &c{&6Player&c} {&6The Message&c}"
+        notOnline: "&cLooks like the requested player isn't on the server !"
+
+    clearChat:
+        clearBroadcast: "\n&5--------------------\n&6Chat Clear par : &5%sender% \n&5--------------------"
+        noperm: "&cYou don't have the permission to /clearchat"
+
+    blockChat:
+        blockBroadcast:
+            enable: "\n&7--------------------\n%prefix%: &6Chat blocked\n&7--------------------"
+            disable: "\n&7--------------------\n%prefix%: &6Chat unblocked\n&7--------------------"
+        noperm: "&cYou don't have the permission to /blockchat"
+        cantChat: "&cChat is currently blocked, please wait for a staff to unblock it before talking"
+
+    broadcast:
+        noperm: "&cYou don't have the permission to /broadcast"
+        noArgs: "&cYou must specifies the message this way: \n &6/broadcast &c{&6The Message To Broadcast&c}"
+        finalMessage: "\n&5--------------------\n%prefix% : &6%message%\n&5--------------------"
+
+    tpa:
+        noperm: "&cYou don't have the permission to /tpa, tpno, tpyes"
+        noArgs: "&cYou must specifies the player this way: \n &6/tpa &c{&6Player&c}"
+        notOnline: "&cLooks like the requested player isn't on the server !"
+        cantAskYourself: "&cYou can't ask to teleport to yourself ..."
+        targetAlreadyHaveARequest: "&cThis player already have a teleport request pending ! You should retry later !"
+        senderAlreadyHaveARequest: "&cYou already have a teleport request pending ! You should retry later !"
+        targetGetRequest: "&aYou received a teleport request from: &6%sender% &a!\n &aTo accept it use: \n&6/tpyes \n&a to refuse it use:\n &6/tpno\n&cYou have &6%time% seconds &cto answer !"
+        senderSentRequest: "&aYou have sent a teleport request to &6%target%, &ahe have &6%time% seconds &a to respond !"
+        targetDidNotRespond: "&6%target% &cdid not respond to your teleport request"
+        youDidNotRespond: "&cYou did not respond to the teleport request from &6%sender%"
+        senderSecondsLeft: "&6%target% &astill have &6%time% seconds &ato answer to your teleport request..."
+        targetSecondsLeft: "&aYou still have &6%time% seconds &ato answer to the teleport request from &6%sender%&a..."
+
+    tpyes:
+        noRequestPending: "&cYou have no request pending to accept !"
+        youAccepted: "&aYou have accepted the teleport request from &6%target% !\n&aHe will be teleport in &6%time% seconds"
+        requestAccepted: "&6%player% &aHave accepted your teleport request !\n&aYou will be teleport in &6%time% seconds"
+        youHaveBeenTeleported: "&aYou have been teleported to &6%player%"
+        heHaveBeenTeleported: "&6%target% &ahave been teleported to you"
+        teleportationIn: "&aTeleportation in: &6%time%"
+
+    tpno:
+        noRequestPending: "&cYou have no request pending to accept !"
+        youDenied: "&cYou denied the teleport request from &6%target%"
+        requestDenied: "&6%player% &chave denied your teleport request"
+
+    times:
+        noPlayer: "&cOnly players can perform this command !"
+        noperm: "&cYou don't have the permission to change times"
+        setNight: "&cYou have set the night"
+        setDay: "&cYou have set the day"
+
+    weathers:
+        noPlayer: "&cOnly players can perform this command !"
+        noPerm: "&cYou don't have the permission to change weathers"
+        setSun: "&cYou have set the sun"
+        setRain: "&cYou have set the rain"
+
+    kick:
+        noperm: "&cYou don't have the permission to /kick"
+        noArgs: "&cYou must specifies the player, you can also add a reason this way: \n &6/kick &c{&6Player&c} &c{&6The Reason&c}"
+        notOnline: "&cLooks like the requested player isn't on the server !"
+        defaultReason: "&cNo respect of the rules"
+        kickMessage: "&6&lNcls&5&lCore &6%staff% &ckicked you from the server for: &6%reason%"
+        bypass: "&cThis user can't be kicked !"
+        see: "&6%sender% &5have kicked &6%target% &5for:\n:&6%reason%"
+
+    ban:
+        noperm: "&cYou don't have the permission to /ban"
+        noArgs: "&cYou must specifies the player, you can also add a reason  and the time this way: \n &6/ban &c{&6Player&c} &c{&65 d&c} {&6The Reason&c}"
+        defaultReason: "&6No respect of the rules"
+        banMessage: "&6&lNcls&5&lCore &6%staff% &cBanned you from the server \nfor: &6%reason%\n&cuntill: &6%time%"
+        see: "&6%sender% &5have banned &6%target% \n   &5Expiration: &6%time% \n   &5For: &6%reason%"
+        kickBanMessage: "%prefix% &cYou are banned, \nExpiration ban: &6%DateTime%\n&cReason: &6%reason%"
+
+    mute:
+        noperm: "&cYou don't have the permission to /mute"
+        noArgs: "&cYou must specifies the player, you can also add a reason  and the time this way: \n &6/mute &c{&6Player&c} &c{&65 d&c} {&6The Reason&c}"
+        defaultReason: "&6No respect of the rules"
+        muteMessage: "&6&lNcls&5&lCore &6%staff% &cmuted you on the server \nfor: &6%reason%\n&cuntill: &6%time%"
+        see: "&6%sender% &5have muted &6%target% \n   &5Expiration: &6%time% \n   &5For: &6%reason%"
+        mutedMessage: "%prefix% &cYou are mute, \nExpiration ban: &6%DateTime%\n&cReason: &6%reason%"
+
+    unban:
+        noperm: "&cYou don't have the permission to /unban"
+        noArgs: "&cYou must specifies the player this way: \n &6/unban &c{&6Player&c}"
+        notBan: "&cThis player isn't banned !"
+        see: "&6%sender% &5have unbanned &6%target%"
+    unmute:
+        noperm: "&cYou don't have the permission to /unmute"
+        noArgs: "&cYou must specifies the player this way: \n &6/unmute &c{&6Player&c}"
+        notMute: "&cThis player isn't mute !"
+        see: "&6%sender% &5have unmute &6%target%"
+    rtp:
+        noPlayer: "&cOnly players can perform this command !"
+        noPerm: "&cYou don't have the permission to random teleport"
+        teleport: "&aYou have been teleported to &6%location% \n &aYou can use &6/rtp &aagain in &6%timer%&a seconds"
+        teleportbypass: "&aYou have been teleported to &6%location%"
+        wait: "&4You can't use rtp, you still have to wait !"
+        teleportagain: "&aYou can use &6/rtp&a again, you can use it every &6%time% &aseconds"
+############################################################
+#COMMANDS AND PERMISSIONS LIST :
+# /msg -> ncls.chat.msg
+# /clearchat -> ncls.chat.clearChat
+# /blockchat -> ncls.chat.blockChat || bypass blockchat -> ncls.chat.blockChat.bypass
+# /broadcast -> ncls.chat.broadcast
+# /tpa -> ncls.teleportRequest.tpa
+# /tpyes -> ncls.teleportRequest.tpa
+# /tpno -> ncls.teleportRequest.tpa
+# /night -> ncls.environement.night
+# /kick -> ncls.moderation.kick || bypass a kick -> ncls.moderation.kick.bypass || see a kick -> ncls.moderation.kick.see
+# /ban -> ncls.moderation.ban || see a ban -> ncls.moderation.ban.see
+# /mute -> ncls.moderation.mute || see a ban -> ncls.moderation.mute.see
+# /unban -> ncls.moderation.unban || see a unban -> ncls.moderation.unban.see
+# /unmute -> ncls.moderation.unmute || see a unmute -> ncls.moderation.unmute.see
+# /rtp -> ncls.rtp.use || random teleport on map || nclscore.rtp.perm1 - nclscore.rtp.perm2 - nclscore.rtp.perm3 - nclscore.rtp.perm4 or nclscore.rtp.bypass
