@@ -22,71 +22,71 @@ import fr.nclsp.events.moderation.OnLeaveModeration;
 import fr.nclsp.events.moderation.PlayerChatModeration;
 
 public class PluginInitializer {
-    private Main plugin;
+    private Main main;
 
     public PluginInitializer(Main plugin) {
-        this.plugin = plugin;
+        this.main = plugin;
     }
 
     public void initializeCommands() {
         // /MSG COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.msg")) {
-            Objects.requireNonNull(plugin.getCommand("msg")).setExecutor(new Msg(plugin));
+        if (main.getConfig().getBoolean("config.activation.msg")) {
+            Objects.requireNonNull(main.getCommand("msg")).setExecutor(new Msg(main));
         }
         // /CLEARCHAT COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.clearchat")) {
-            Objects.requireNonNull(plugin.getCommand("clearchat")).setExecutor(new Clearchat(plugin));
+        if (main.getConfig().getBoolean("config.activation.clearchat")) {
+            Objects.requireNonNull(main.getCommand("clearchat")).setExecutor(new Clearchat(main));
         }
         // BLOCKCHAT COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.blockchat")) {
-            plugin.getCommand("blockchat").setExecutor(new BlockChat(plugin));
-            plugin.getServer().getPluginManager().registerEvents(new OnChatWithBlockChat(plugin), plugin);
+        if (main.getConfig().getBoolean("config.activation.blockchat")) {
+            main.getCommand("blockchat").setExecutor(new BlockChat(main));
+            main.getServer().getPluginManager().registerEvents(new OnChatWithBlockChat(main), main);
         }
         // /BROADCAST COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.broadcast")) {
-            Objects.requireNonNull(plugin.getCommand("broadcast")).setExecutor(new Broadcast(plugin));
+        if (main.getConfig().getBoolean("config.activation.broadcast")) {
+            Objects.requireNonNull(main.getCommand("broadcast")).setExecutor(new Broadcast(main));
         }
         // /TPA /TPYES /TPNO COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.tpa")) {
-            Objects.requireNonNull(plugin.getCommand("tpa")).setExecutor(new TeleportRequest(plugin));
-            Objects.requireNonNull(plugin.getCommand("tpyes")).setExecutor(new TeleportRequest(plugin));
-            Objects.requireNonNull(plugin.getCommand("tpno")).setExecutor(new TeleportRequest(plugin));
+        if (main.getConfig().getBoolean("config.activation.tpa")) {
+            Objects.requireNonNull(main.getCommand("tpa")).setExecutor(new TeleportRequest(main));
+            Objects.requireNonNull(main.getCommand("tpyes")).setExecutor(new TeleportRequest(main));
+            Objects.requireNonNull(main.getCommand("tpno")).setExecutor(new TeleportRequest(main));
         }
         // /BAN /UNBAN COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.ban")) {
-            Objects.requireNonNull(plugin.getCommand("ban")).setExecutor(new Ban(plugin));
-            Objects.requireNonNull(plugin.getCommand("unban")).setExecutor(new Unban(plugin));
+        if (main.getConfig().getBoolean("config.activation.ban")) {
+            Objects.requireNonNull(main.getCommand("ban")).setExecutor(new Ban(main));
+            Objects.requireNonNull(main.getCommand("unban")).setExecutor(new Unban(main));
         }
         // /KICK COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.kick")) {
-            Objects.requireNonNull(plugin.getCommand("kick")).setExecutor(new Kick(plugin));
+        if (main.getConfig().getBoolean("config.activation.kick")) {
+            Objects.requireNonNull(main.getCommand("kick")).setExecutor(new Kick(main));
         }
         // /MUTE /UNMUTE COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.mute")) {
-            Objects.requireNonNull(plugin.getCommand("mute")).setExecutor(new Mute(plugin));
-            Objects.requireNonNull(plugin.getCommand("unmute")).setExecutor(new Unmute(plugin));
+        if (main.getConfig().getBoolean("config.activation.mute")) {
+            Objects.requireNonNull(main.getCommand("mute")).setExecutor(new Mute(main));
+            Objects.requireNonNull(main.getCommand("unmute")).setExecutor(new Unmute(main));
         }
         // /RTP COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.rtp")) {
-            Objects.requireNonNull(plugin.getCommand("rtp")).setExecutor(new Rtp(plugin));
+        if (main.getConfig().getBoolean("config.activation.rtp")) {
+            Objects.requireNonNull(main.getCommand("rtp")).setExecutor(new Rtp(main));
         }
-        if (plugin.getConfig().getBoolean("config.activation.time")) {
-            Objects.requireNonNull(plugin.getCommand("night")).setExecutor(new Times(plugin));
-            Objects.requireNonNull(plugin.getCommand("day")).setExecutor(new Times(plugin));
+        if (main.getConfig().getBoolean("config.activation.time")) {
+            Objects.requireNonNull(main.getCommand("night")).setExecutor(new Times(main));
+            Objects.requireNonNull(main.getCommand("day")).setExecutor(new Times(main));
         }
         // /WEATHER COMMAND
-        if (plugin.getConfig().getBoolean("config.activation.weather")) {
-            Objects.requireNonNull(plugin.getCommand("sun")).setExecutor(new Weathers(plugin));
-            Objects.requireNonNull(plugin.getCommand("rain")).setExecutor(new Weathers(plugin));
+        if (main.getConfig().getBoolean("config.activation.weather")) {
+            Objects.requireNonNull(main.getCommand("sun")).setExecutor(new Weathers(main));
+            Objects.requireNonNull(main.getCommand("rain")).setExecutor(new Weathers(main));
         }
         // JOIN MODERATION
-        if (plugin.getConfig().getBoolean("config.activation.joinmoderation")) {
-            plugin.getServer().getPluginManager().registerEvents(new OnJoinModeration(plugin), plugin);
-            plugin.getServer().getPluginManager().registerEvents(new OnLeaveModeration(plugin), plugin);
+        if (main.getConfig().getBoolean("config.activation.joinmoderation")) {
+            main.getServer().getPluginManager().registerEvents(new OnJoinModeration(main), main);
+            main.getServer().getPluginManager().registerEvents(new OnLeaveModeration(main), main);
         }
         // CHAT MODERATION
-        if (plugin.getConfig().getBoolean("config.activation.chatmoderation")) {
-            plugin.getServer().getPluginManager().registerEvents(new PlayerChatModeration(plugin), plugin);
+        if (main.getConfig().getBoolean("config.activation.chatmoderation")) {
+            main.getServer().getPluginManager().registerEvents(new PlayerChatModeration(main), main);
         }
     }
 }
