@@ -24,7 +24,7 @@ public class TeleportRequest implements CommandExecutor {
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if (sender instanceof Player) {
 			Player p = (Player) sender;
-			if (sender.hasPermission("ncls.teleportRequest.tpa")) // check perm
+			if (sender.hasPermission("nclsp.teleportRequest.tpa")) // check perm
 			{
 				if (label.equalsIgnoreCase("tpa")) {
 					if (args.length != 0) {

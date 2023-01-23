@@ -22,7 +22,7 @@ public class Unmute implements CommandExecutor {
     @Override
     @SuppressWarnings("deprecation")
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("ncls.moderation.unmute")) {
+        if (sender.hasPermission("nclsp.moderation.unmute")) {
             if (args.length >= 1) { // If /unmute {target}
                 String targetName = args[0];
                 UUID targetUUID;
@@ -35,7 +35,7 @@ public class Unmute implements CommandExecutor {
                     {
                         main.dbModeration.mutedActual(main.statementMod, targetUUID);
                         for (Player tempPlayer : Bukkit.getOnlinePlayers()) {
-                            if (tempPlayer.hasPermission("ncls.moderation.unmute.see"))
+                            if (tempPlayer.hasPermission("nclsp.moderation.unmute.see"))
                                 tempPlayer.sendMessage(
                                         Objects.requireNonNull(main.getConfig().getString("messages.unmute.see"))
                                                 .replace('&', '§').replace("%sender%", sender.getName())

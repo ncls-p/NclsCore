@@ -16,7 +16,7 @@ public class BlockChat implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("ncls.chat.blockChat")) {
+        if (sender.hasPermission("nclsp.chat.blockChat")) {
             if (!main.blockChat) {
                 main.blockChat = true;
                 Bukkit.getServer()

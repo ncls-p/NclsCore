@@ -20,7 +20,7 @@ public class Weathers implements CommandExecutor {
 
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (p.hasPermission("ncls.environement.weathers")) {
+            if (p.hasPermission("nclsp.environement.weathers")) {
                 if (label.equalsIgnoreCase("sun")) {
                     p.getWorld().setStorm(false);
                     p.sendMessage(main.getConfig().getString("messages.weathers.setStun"));

@@ -19,7 +19,7 @@ public class Clearchat implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("ncls.chat.clearChat")) // check perm
+        if (sender.hasPermission("nclsp.chat.clearChat")) // check perm
         {
             for (int i = 0; i < 100; i++) {
                 for (Player tempPlayer : Bukkit.getOnlinePlayers()) // To don't spam console & logs, we only clear

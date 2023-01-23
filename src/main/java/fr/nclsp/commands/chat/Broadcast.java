@@ -20,7 +20,7 @@ public class Broadcast implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         String prefix = Objects.requireNonNull(main.getConfig().getString("messages.prefix")).replace('&', '§');
-        if (sender.hasPermission("ncls.chat.broadcast")) {
+        if (sender.hasPermission("nclsp.chat.broadcast")) {
             if (args.length != 0) {
                 StringBuilder sb = new StringBuilder();
                 for (String arg : args) {

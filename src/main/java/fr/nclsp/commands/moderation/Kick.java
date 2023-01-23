@@ -21,7 +21,7 @@ public class Kick implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         String prefix = Objects.requireNonNull(main.getConfig().getString("messages.prefix")).replace('&', '§');
-        if (sender.hasPermission("ncls.moderation.kick")) { // Check Perm
+        if (sender.hasPermission("nclsp.moderation.kick")) { // Check Perm
 
             if (args.length >= 1) { // Check Args
                 String targetName = args[0];
@@ -29,7 +29,7 @@ public class Kick implements CommandExecutor {
                 {
                     Player target = Bukkit.getServer().getPlayerExact(targetName);
                     assert target != null;
-                    if (!(target.hasPermission("ncls.moderation.kick.bypass"))) { // Check if the target bypass
+                    if (!(target.hasPermission("nclsp.moderation.kick.bypass"))) { // Check if the target bypass
                         String reason = Objects
                                 .requireNonNull(main.getConfig().getString("messages.kick.defaultReason"))
                                 .replace('&', '§');
@@ -46,7 +46,7 @@ public class Kick implements CommandExecutor {
                                 .requireNonNull(main.getConfig().getString("messages.kick.kickMessage"))
                                 .replace('&', '§').replace("%staff%", sender.getName()).replace("%reason%", reason));
                         for (Player tempPlayer : Bukkit.getServer().getOnlinePlayers()) {
-                            if (tempPlayer.hasPermission("ncls.moderation.kick.see"))
+                            if (tempPlayer.hasPermission("nclsp.moderation.kick.see"))
                                 tempPlayer.sendMessage(
                                         prefix + Objects.requireNonNull(main.getConfig().getString("messages.kick.see"))
                                                 .replace('&', '§').replace("%sender%", sender.getName())

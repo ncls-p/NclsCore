@@ -29,14 +29,14 @@ config:
                 x: 0
                 z: 0
             range: 35000 #Maximum teleport range in block
-            timer: #each perm represent seconds before rtp again, each perm can be set has: nclscore.rtp.perm1 - nclscore.rtp.perm2 - nclscore.rtp.perm3 - nclscore.rtp.perm4 or nclscore.rtp.bypass
+            timer: #each perm represent seconds before rtp again, each perm can be set has: nclspcore.rtp.perm1 - nclspcore.rtp.perm2 - nclspcore.rtp.perm3 - nclspcore.rtp.perm4 or nclspcore.rtp.bypass
                 perm1: 10800
                 perm2: 7200
                 perm3: 3600
                 perm4: 1800
 
 messages:
-    prefix: "&6&lNcls&5&lCore "
+    prefix: "&6&lNclsp&5&lCore "
     msg:
         sender: "&6[&5You &6-> &5%receiver%&6] &a%message%"
         receiver: "&6[&5%sender% &6-> &5You&6] &a%message%"
@@ -104,7 +104,7 @@ messages:
         noArgs: "&cYou must specifies the player, you can also add a reason this way: \n &6/kick &c{&6Player&c} &c{&6The Reason&c}"
         notOnline: "&cLooks like the requested player isn't on the server !"
         defaultReason: "&cNo respect of the rules"
-        kickMessage: "&6&lNcls&5&lCore &6%staff% &ckicked you from the server for: &6%reason%"
+        kickMessage: "&6&lNclsp&5&lCore &6%staff% &ckicked you from the server for: &6%reason%"
         bypass: "&cThis user can't be kicked !"
         see: "&6%sender% &5have kicked &6%target% &5for:\n:&6%reason%"
 
@@ -112,7 +112,7 @@ messages:
         noperm: "&cYou don't have the permission to /ban"
         noArgs: "&cYou must specifies the player, you can also add a reason  and the time this way: \n &6/ban &c{&6Player&c} &c{&65 d&c} {&6The Reason&c}"
         defaultReason: "&6No respect of the rules"
-        banMessage: "&6&lNcls&5&lCore &6%staff% &cBanned you from the server \nfor: &6%reason%\n&cuntill: &6%time%"
+        banMessage: "&6&lNclsp&5&lCore &6%staff% &cBanned you from the server \nfor: &6%reason%\n&cuntill: &6%time%"
         see: "&6%sender% &5have banned &6%target% \n   &5Expiration: &6%time% \n   &5For: &6%reason%"
         kickBanMessage: "%prefix% &cYou are banned, \nExpiration ban: &6%DateTime%\n&cReason: &6%reason%"
 
@@ -120,7 +120,7 @@ messages:
         noperm: "&cYou don't have the permission to /mute"
         noArgs: "&cYou must specifies the player, you can also add a reason  and the time this way: \n &6/mute &c{&6Player&c} &c{&65 d&c} {&6The Reason&c}"
         defaultReason: "&6No respect of the rules"
-        muteMessage: "&6&lNcls&5&lCore &6%staff% &cmuted you on the server \nfor: &6%reason%\n&cuntill: &6%time%"
+        muteMessage: "&6&lNclsp&5&lCore &6%staff% &cmuted you on the server \nfor: &6%reason%\n&cuntill: &6%time%"
         see: "&6%sender% &5have muted &6%target% \n   &5Expiration: &6%time% \n   &5For: &6%reason%"
         mutedMessage: "%prefix% &cYou are mute, \nExpiration ban: &6%DateTime%\n&cReason: &6%reason%"
 
@@ -143,17 +143,17 @@ messages:
         teleportagain: "&aYou can use &6/rtp&a again, you can use it every &6%time% &aseconds"
 ############################################################
 #COMMANDS AND PERMISSIONS LIST :
-# /msg -> ncls.chat.msg
-# /clearchat -> ncls.chat.clearChat
-# /blockchat -> ncls.chat.blockChat || bypass blockchat -> ncls.chat.blockChat.bypass
-# /broadcast -> ncls.chat.broadcast
-# /tpa -> ncls.teleportRequest.tpa
-# /tpyes -> ncls.teleportRequest.tpa
-# /tpno -> ncls.teleportRequest.tpa
-# /night -> ncls.environement.night
-# /kick -> ncls.moderation.kick || bypass a kick -> ncls.moderation.kick.bypass || see a kick -> ncls.moderation.kick.see
-# /ban -> ncls.moderation.ban || see a ban -> ncls.moderation.ban.see
-# /mute -> ncls.moderation.mute || see a ban -> ncls.moderation.mute.see
-# /unban -> ncls.moderation.unban || see a unban -> ncls.moderation.unban.see
-# /unmute -> ncls.moderation.unmute || see a unmute -> ncls.moderation.unmute.see
-# /rtp -> ncls.rtp.use || random teleport on map || nclscore.rtp.perm1 - nclscore.rtp.perm2 - nclscore.rtp.perm3 - nclscore.rtp.perm4 or nclscore.rtp.bypass
+# /msg -> nclsp.chat.msg
+# /clearchat -> nclsp.chat.clearChat
+# /blockchat -> nclsp.chat.blockChat || bypass blockchat -> nclsp.chat.blockChat.bypass
+# /broadcast -> nclsp.chat.broadcast
+# /tpa -> nclsp.teleportRequest.tpa
+# /tpyes -> nclsp.teleportRequest.tpa
+# /tpno -> nclsp.teleportRequest.tpa
+# /night -> nclsp.environement.night
+# /kick -> nclsp.moderation.kick || bypass a kick -> nclsp.moderation.kick.bypass || see a kick -> nclsp.moderation.kick.see
+# /ban -> nclsp.moderation.ban || see a ban -> nclsp.moderation.ban.see
+# /mute -> nclsp.moderation.mute || see a ban -> nclsp.moderation.mute.see
+# /unban -> nclsp.moderation.unban || see a unban -> nclsp.moderation.unban.see
+# /unmute -> nclsp.moderation.unmute || see a unmute -> nclsp.moderation.unmute.see
+# /rtp -> nclsp.rtp.use || random teleport on map || nclspcore.rtp.perm1 - nclspcore.rtp.perm2 - nclspcore.rtp.perm3 - nclspcore.rtp.perm4 or nclspcore.rtp.bypass

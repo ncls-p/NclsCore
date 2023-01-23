@@ -22,7 +22,7 @@ public class Unban implements CommandExecutor {
     @Override
     @SuppressWarnings("deprecation")
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("ncls.moderation.unban")) {
+        if (sender.hasPermission("nclsp.moderation.unban")) {
             if (args.length >= 1) { // If /unban {target}
                 String targetName = args[0];
                 UUID targetUUID;
@@ -36,7 +36,7 @@ public class Unban implements CommandExecutor {
                     {
                         main.dbModeration.unbanActual(main.statementMod, targetUUID);
                         for (Player tempPlayer : Bukkit.getOnlinePlayers()) {
-                            if (tempPlayer.hasPermission("ncls.moderation.unban.see"))
+                            if (tempPlayer.hasPermission("nclsp.moderation.unban.see"))
                                 tempPlayer.sendMessage(
                                         Objects.requireNonNull(main.getConfig().getString("messages.unban.see"))
                                                 .replace('&', '§').replace("%sender%", sender.getName())

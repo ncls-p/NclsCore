@@ -23,7 +23,7 @@ public class Rtp implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (p.hasPermission("ncls.rtp.use")) {
+            if (p.hasPermission("nclsp.rtp.use")) {
                 if (!(main.hMRtp.containsKey(p)))
                     main.hMRtp.put(p, false);
                 if (!main.hMRtp.get(p)) {

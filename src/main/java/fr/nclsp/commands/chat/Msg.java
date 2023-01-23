@@ -19,7 +19,7 @@ public class Msg implements CommandExecutor {
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
-        if (sender.hasPermission("ncls.chat.msg")) // Check permission to /msg
+        if (sender.hasPermission("nclsp.chat.msg")) // Check permission to /msg
         {
             if (!(args.length <= 1)) {
                 String targetName = args[0];

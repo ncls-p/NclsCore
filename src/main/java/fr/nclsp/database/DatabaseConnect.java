@@ -28,11 +28,11 @@ public class DatabaseConnect {
                     "jdbc:mysql://" + this.host + ":" + this.port + "/" + this.databaseName, this.username,
                     this.password); // connection
             Bukkit.getConsoleSender()
-                    .sendMessage("§5§lNCLS§6§lCore§a Connection to the moderation database successful !");
+                    .sendMessage("§5§lNCLSP§6§lCore§a Connection to the moderation database successful !");
             return conn.createStatement();
         } catch (SQLException throwables) { // Can't connect to de database
             Bukkit.getConsoleSender().sendMessage(
-                    "§5§lNCLS§6§lCore §c§lError while connecting to the database Moderation, please check your configuration file before asking for help, looking at the error bellow might help you:\n §6"
+                    "§5§lNCLSP§6§lCore §c§lError while connecting to the database Moderation, please check your configuration file before asking for help, looking at the error bellow might help you:\n §6"
                             + throwables.getMessage());
         }
         return null;

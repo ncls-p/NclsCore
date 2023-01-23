@@ -1,9 +1,9 @@
-# NCLS Core
+# NclspCore
 
 This is a Bukkit plugin for Minecraft servers, providing useful commands and features for server administrators and players. 
 
 ## Table of Contents
-- [NCLS Core](#ncls-core)
+- [NclspCore](#nclspcore)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Configuration](#configuration)

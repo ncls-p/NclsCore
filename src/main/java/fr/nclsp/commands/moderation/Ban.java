@@ -24,7 +24,7 @@ public class Ban implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         String prefix = Objects.requireNonNull(main.getConfig().getString("messages.prefix"))
                 .replace('&', '§');
-        if (sender.hasPermission("ncls.moderation.ban")) // Check permission
+        if (sender.hasPermission("nclsp.moderation.ban")) // Check permission
         {
             if (args.length >= 1) { // Check if args are set
                 String reason = Objects.requireNonNull(main.getConfig().getString("messages.ban.defaultReason"))
@@ -148,7 +148,7 @@ public class Ban implements CommandExecutor {
             main.dbModeration.insertBanDatabase(main.statementMod, targetName, targetUUID, reason, sender.getName(),
                     staffUUID, time); // Insert into Database
             for (Player p : Bukkit.getOnlinePlayers()) {
-                if (p.hasPermission("ncls.moderation.ban.see")) {
+                if (p.hasPermission("nclsp.moderation.ban.see")) {
                     if (time != 0 && end != null) {
                         p.sendMessage(Objects.requireNonNull(main.getConfig().getString("messages.ban.see"))
                                 .replace('&', '§')
@@ -214,7 +214,7 @@ public class Ban implements CommandExecutor {
  * /ban player 1 s reason -> ban specified time the reason specified == 4 args
  * or more --> Have to check if arg[1] == int ------------------ CHECK
  * 
- * if(sender.haspermission("ncls.*********")){
+ * if(sender.haspermission("nclsp.*********")){
  * if(args.length >= 1){
  * if(args.length == 1){ /BAN PLAYER
  * Kick target

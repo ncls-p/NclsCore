@@ -15,7 +15,7 @@ public class OnChatWithBlockChat implements Listener {
 
     @EventHandler
     public void onChatWithBlockChat(AsyncPlayerChatEvent e) {
-        if (!e.getPlayer().hasPermission("ncls.chat.blockChat.bypass")) {
+        if (!e.getPlayer().hasPermission("nclsp.chat.blockChat.bypass")) {
             if (main.blockChat) {
                 e.setCancelled(true);
                 e.getPlayer().sendMessage(main.getConfig().getString("messages.blockChat.cantChat").replace("&", "§"));

@@ -19,7 +19,7 @@ public class Times implements CommandExecutor {
 
         if (sender instanceof Player) {
             Player p = (Player) sender;
-            if (p.hasPermission("ncls.environement.times")) {
+            if (p.hasPermission("nclsp.environement.times")) {
                 if (label.equalsIgnoreCase("night")) {
                     p.getWorld().setTime(13000);
                     p.sendMessage(main.getConfig().getString("messages.times.setNight").replace('&', '§'));

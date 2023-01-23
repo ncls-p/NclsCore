@@ -25,7 +25,7 @@ public class Mute implements CommandExecutor {
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         String prefix = Objects.requireNonNull(main.getConfig().getString("messages.prefix"))
                 .replace('&', '§');
-        if (sender.hasPermission("ncls.moderation.mute")) // Check permission
+        if (sender.hasPermission("nclsp.moderation.mute")) // Check permission
         {
             if (args.length >= 1) { // Check if args are set
                 String reason = Objects.requireNonNull(main.getConfig().getString("messages.mute.defaultReason"))
@@ -148,7 +148,7 @@ public class Mute implements CommandExecutor {
             main.dbModeration.insertMuteDatabase(main.statementMod, targetName, targetUUID, reason, sender.getName(),
                     staffUUID, time); // Insert into Database
             for (Player p : Bukkit.getOnlinePlayers()) {
-                if (p.hasPermission("ncls.moderation.mute.see")) {
+                if (p.hasPermission("nclsp.moderation.mute.see")) {
                     if (time != 0 && end != null) {
                         p.sendMessage(Objects.requireNonNull(main.getConfig().getString("messages.mute.see"))
                                 .replace('&', '§')
