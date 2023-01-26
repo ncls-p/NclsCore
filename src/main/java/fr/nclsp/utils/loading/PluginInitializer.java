@@ -17,8 +17,8 @@ import fr.nclsp.commands.moderation.Unmute;
 import fr.nclsp.commands.teleport.Rtp;
 import fr.nclsp.commands.teleport.TeleportRequest;
 import fr.nclsp.events.chat.OnChatWithBlockChat;
-import fr.nclsp.events.moderation.OnJoinModeration;
-import fr.nclsp.events.moderation.OnLeaveModeration;
+import fr.nclsp.events.moderation.OnJoinBannedPlayer;
+import fr.nclsp.events.moderation.OnLeaveBannedPlayer;
 import fr.nclsp.events.moderation.PlayerChatModeration;
 
 public class PluginInitializer {
@@ -52,19 +52,16 @@ public class PluginInitializer {
             Objects.requireNonNull(main.getCommand("tpyes")).setExecutor(new TeleportRequest(main));
             Objects.requireNonNull(main.getCommand("tpno")).setExecutor(new TeleportRequest(main));
         }
-        // /BAN /UNBAN COMMAND
-        if (main.getConfig().getBoolean("config.activation.ban")) {
+        // /Moderation COMMAND and EVENTS
+        if (main.getConfig().getBoolean("config.activation.moderation")) {
             Objects.requireNonNull(main.getCommand("ban")).setExecutor(new Ban(main));
             Objects.requireNonNull(main.getCommand("unban")).setExecutor(new Unban(main));
-        }
-        // /KICK COMMAND
-        if (main.getConfig().getBoolean("config.activation.kick")) {
             Objects.requireNonNull(main.getCommand("kick")).setExecutor(new Kick(main));
-        }
-        // /MUTE /UNMUTE COMMAND
-        if (main.getConfig().getBoolean("config.activation.mute")) {
             Objects.requireNonNull(main.getCommand("mute")).setExecutor(new Mute(main));
             Objects.requireNonNull(main.getCommand("unmute")).setExecutor(new Unmute(main));
+            main.getServer().getPluginManager().registerEvents(new OnJoinBannedPlayer(main), main);
+            main.getServer().getPluginManager().registerEvents(new OnLeaveBannedPlayer(main), main);
+            main.getServer().getPluginManager().registerEvents(new PlayerChatModeration(main), main);
         }
         // /RTP COMMAND
         if (main.getConfig().getBoolean("config.activation.rtp")) {
@@ -78,15 +75,6 @@ public class PluginInitializer {
         if (main.getConfig().getBoolean("config.activation.weather")) {
             Objects.requireNonNull(main.getCommand("sun")).setExecutor(new Weathers(main));
             Objects.requireNonNull(main.getCommand("rain")).setExecutor(new Weathers(main));
-        }
-        // JOIN MODERATION
-        if (main.getConfig().getBoolean("config.activation.joinmoderation")) {
-            main.getServer().getPluginManager().registerEvents(new OnJoinModeration(main), main);
-            main.getServer().getPluginManager().registerEvents(new OnLeaveModeration(main), main);
-        }
-        // CHAT MODERATION
-        if (main.getConfig().getBoolean("config.activation.chatmoderation")) {
-            main.getServer().getPluginManager().registerEvents(new PlayerChatModeration(main), main);
         }
     }
 }
