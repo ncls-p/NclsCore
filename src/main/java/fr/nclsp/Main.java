@@ -27,7 +27,7 @@ public class Main extends JavaPlugin {
     @Override
     public void onEnable() {
         this.saveDefaultConfig();
-        getServer().getConsoleSender().sendMessage("§5§lNCLS§6§lCore§a : Enabled");
+        getServer().getConsoleSender().sendMessage("§5§lNCLS§6§lCore§a : Enabled"); 
         PluginInitializer pluginInitializer = new PluginInitializer(this);
         pluginInitializer.initializeCommands();
     }
